@@ -1,0 +1,35 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: gateway_service
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+      routes:
+        - id: utilisateur-route
+          uri: lb://utilisateur
+          predicates:
+            - Path=/utilisateur/**
+          filters:
+            - StripPrefix=1
+
+        - id: produit-route
+          uri: lb://produit
+          predicates:
+            - Path=/produit/**
+          filters:
+            - StripPrefix=1
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
