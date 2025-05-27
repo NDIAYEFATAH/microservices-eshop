@@ -1,3 +1,4 @@
+/*
 package sn.eshop.utilisateur.Config;
 
 import org.springframework.context.annotation.Bean;
@@ -20,3 +21,4 @@ public class SwaggerConfig {
                 .build();
     }
 }
+*/

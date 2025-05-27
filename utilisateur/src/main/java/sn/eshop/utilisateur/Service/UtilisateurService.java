@@ -33,4 +33,8 @@ public class UtilisateurService {
     public boolean existsByEmail(String email) {
         return repo.existsByEmail(email);
     }
+
+    public Optional<Utilisateurentity> findByEmail(String email) {
+        return repo.findByEmail(email);
+    }
 }
